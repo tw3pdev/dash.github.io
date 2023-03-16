@@ -305,7 +305,7 @@ async function addEvent(name, event_) {
 let lastBlock;
 let lastSupply = 0;
 async function eventBoard() {
-  let txLogs;
+  let txLogs = [];
 
   if (CURBLOCK == undefined) {
     return;
