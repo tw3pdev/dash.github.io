@@ -209,6 +209,7 @@ let jpAlarmed = false;
 let cb;
 let bigbuyTimeLeft;
 let bigbuyAlarmed = false;
+let jpPrize = 0;
 async function _runGlobal() {
   let cacheData = await fetch('jsons/values.json');
   cacheData = await cacheData.text();
@@ -339,7 +340,7 @@ async function _runGlobal() {
     let lastBuyer = await CONTS['jackpot']._lastBuyer();
     displayText("#lastBuyer", `${HREF(BSC('address', lastBuyer), SHORTADR(lastBuyer))}`);
 
-    let jpPrize = (await getBalance(ADRS['jackpot'])) / BNBDIV * (await gV('bnbPrice'));
+    jpPrize = (await getBalance(ADRS['jackpot'])) / BNBDIV * (await gV('bnbPrice'));
     displayText("#jpPrize", `$${COMMA(INT(jpPrize, 0))}`);
   
     
